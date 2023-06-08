@@ -3,7 +3,7 @@ import { defineConfig } from "unocss";
 
 const globalValues = "inherit|initial|revert|revert-layout|unset";
 
-const sizedValue = "?:(\\d+)(\\w*|%)";
+const sizedValue = "?:(\\d+(?:\.\\d+)?)(\\w*|%)";
 
 const colorCode = "[0-9A-F]{3,4}|[0-9A-F]{6}|[0-9A-F]{8}";
 
@@ -46,6 +46,8 @@ function cornerRule(corners: string|undefined, style: string, value: string) {
 
 export default defineConfig({
   rules: [
+      ["reset", { all: "unset" }, { layer: "base" }],
+
     /*------------------------------------ Background Color -------------------------------------*/
       [new RegExp(`^bgc-(${globalValues})$`), m => ({ "background-color":  (m[1]) })],
       [new RegExp(`^bgc-(${colorCode   })$`), m => ({ "background-color": c(m[1]) })],
