@@ -1,12 +1,33 @@
 <script lang="ts">
+  import { onMount   } from "svelte";
   import { appWindow } from "@tauri-apps/api/window";
+
+  import version from "../store/version";
+
+
+  let toggleIconClass = "fa-maximize";
+
+  onMount(async () => {
+    toggleIconClass = (await appWindow.isMaximized())
+      ? "fa-minimize"
+      : "fa-maximize";
+  });
+
+  const toggleMaximize = () => {
+    appWindow.toggleMaximize();
+    toggleIconClass = (toggleIconClass === "fa-maximize")
+      ? "fa-minimize"
+      : "fa-maximize";
+  };
+
 </script>
 
 
 <div class="flex h-20px">
-  <span data-tauri-drag-region class="block lh-20px select-none text-13px font-900 ml-10px flex-1">AutoMaster</span>
-  <button on:click={appWindow.minimize} class="reset"><i class="fa-solid fa-minus"/></button>
-  <button on:click={appWindow.close   } class="reset"><i class="fa-solid fa-xmark"/></button>
+  <span data-tauri-drag-region class="block lh-20px select-none text-13px font-900 ml-10px flex-1">AutoMaster {$version}</span>
+  <button on:click={appWindow.minimize} class="reset"><i class="fa-solid fa-minus"         /></button>
+  <button on:click={toggleMaximize    } class="reset"><i class="fa-solid {toggleIconClass}"/></button>
+  <button on:click={appWindow.close   } class="reset"><i class="fa-solid fa-xmark"         /></button>
 </div>
 
 
