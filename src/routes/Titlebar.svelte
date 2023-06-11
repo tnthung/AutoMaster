@@ -1,23 +1,27 @@
 <script lang="ts">
-  import { onMount   } from "svelte";
+  import { onDestroy, onMount   } from "svelte";
   import { appWindow } from "@tauri-apps/api/window";
 
   import version from "../store/version";
 
 
+  let interval: any;
   let toggleIconClass = "fa-maximize";
 
-  onMount(async () => {
-    toggleIconClass = (await appWindow.isMaximized())
-      ? "fa-minimize"
-      : "fa-maximize";
+  onMount(() => {
+    interval = setInterval(async () => {
+      toggleIconClass = (await appWindow.isMaximized())
+        ? "fa-minimize"
+        : "fa-maximize";
+    }, 100);
+  });
+
+  onDestroy(() => {
+    clearInterval(interval);
   });
 
   const toggleMaximize = () => {
     appWindow.toggleMaximize();
-    toggleIconClass = (toggleIconClass === "fa-maximize")
-      ? "fa-minimize"
-      : "fa-maximize";
   };
 
 </script>
