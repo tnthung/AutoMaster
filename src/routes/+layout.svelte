@@ -3,22 +3,32 @@
   import "../assets/fontawesome/scss/solid.scss";
   import "../assets/fontawesome/scss/fontawesome.scss";
 
+  // transition
+  import { fly } from "svelte/transition";
+
+  // store
   import dark from "../store/darkmode";
 
+  // components
   import Titlebar from "./Titlebar.svelte";
+
+
+  export let data: { url: URL };
 </script>
 
 
-<div class="page flex flex-col fixed inset-0 bdr-5 of-hidden bgc-0000" class:dark={$dark}>
+<div id="app" class:dark={$dark}>
   <Titlebar/>
-  <main class="flex-1">
-    <slot/>
-  </main>
+  <span id="page">
+    {#key data.url.pathname}
+    <main transition:fly><slot/></main>
+    {/key}
+  </span>
 </div>
 
 
 <style lang="scss" global>
-  div.page {
+  #app {
     --txt: #031107;
     --bgc: #d9f7e2;
     --pri: #1d913f;
@@ -31,11 +41,26 @@
       --sec: #0a100a;
     }
 
-    font-family: Arial, Helvetica, sans-serif;
+    inset   : 0;
+    position: fixed;
 
-    color: var(--txt);
+    display  : flex;
+    flex-flow: column nowrap;
+
+    overflow     : hidden;
+    background   : var(--bgc);
+    font-family  : Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+  }
+
+
+  #page {
+    position : relative;
+    flex-grow: 1;
 
     main {
+      position        : absolute;
+      inset           : 0;
       background-color: var(--bgc);
     }
   }
