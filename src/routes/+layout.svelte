@@ -53,6 +53,8 @@
     background   : var(--bgc);
     font-family  : Arial, Helvetica, sans-serif;
     border-radius: 5px;
+
+    user-select: none;
   }
 
 
