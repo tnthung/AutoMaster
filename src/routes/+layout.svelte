@@ -10,6 +10,7 @@
   import dark from "../store/darkmode";
 
   // components
+  import Setting  from "./Setting.svelte";
   import Titlebar from "./Titlebar.svelte";
 
 
@@ -19,6 +20,7 @@
 
 <div id="app" class:dark={$dark}>
   <Titlebar/>
+  <Setting/>
   <span id="page">
     {#key data.url.pathname}
     <main transition:fly><slot/></main>
@@ -59,8 +61,9 @@
     flex-grow: 1;
 
     main {
-      position        : absolute;
       inset           : 0;
+      padding         : 10px;
+      position        : absolute;
       background-color: var(--bgc);
     }
   }
