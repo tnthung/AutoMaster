@@ -47,6 +47,7 @@ function cornerRule(corners: string|undefined, style: string, value: string) {
 export default defineConfig({
   rules: [
       ["reset", { all: "unset" }, { layer: "base" }],
+      ["debug", { outline: "1px solid red" }],
 
     /*------------------------------------ Background Color -------------------------------------*/
       [new RegExp(`^bgc-(${globalValues})$`), m => ({ "background-color":  (m[1]) })],
