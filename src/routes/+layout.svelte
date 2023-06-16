@@ -69,4 +69,9 @@
       background-color: var(--bgc);
     }
   }
+
+
+  [debug] {
+    outline: 1px solid red;
+  }
 </style>
