@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { appWindow } from "@tauri-apps/api/window";
-  import { openSetting } from "./Setting.svelte";
+  import { open               } from "./Setting.svelte";
+  import { appWindow          } from "@tauri-apps/api/window";
   import { onDestroy, onMount } from "svelte";
 
   import version from "../store/version";
@@ -30,7 +30,7 @@
 
 <div class="flex h-20px">
   <span data-tauri-drag-region class="block lh-20px text-13px font-900 ml-10px flex-1">AutoMaster {$version}</span>
-  <button on:click={openSetting       } class="reset"><i class="fa-solid fa-gear"          /></button>
+  <button on:click={open              } class="reset"><i class="fa-solid fa-gear"          /></button>
   <div class="w-20px"/>
   <button on:click={appWindow.minimize} class="reset"><i class="fa-solid fa-minus"         /></button>
   <button on:click={toggleMaximize    } class="reset"><i class="fa-solid {toggleIconClass}"/></button>
