@@ -50,6 +50,7 @@
     display  : flex;
     flex-flow: column nowrap;
 
+    color        : var(--txt);
     overflow     : hidden;
     background   : var(--bgc);
     font-family  : Arial, Helvetica, sans-serif;
