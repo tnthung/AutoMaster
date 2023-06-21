@@ -36,6 +36,7 @@
     --pri: #1d913f;
     --sec: #f6fdf9;
     --acc: #187b36;
+    --neg: #d14141;
 
     &.dark {
       --txt: #f6f9f5;
