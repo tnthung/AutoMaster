@@ -54,6 +54,7 @@
     },
     "windows": [
       {
+        "fileDropEnabled": false,
         "fullscreen": false,
         "title": "AutoMaster",
         "minWidth": 800,
