@@ -50,9 +50,9 @@ export default defineConfig({
       ["debug", { outline: "1px solid red" }],
 
     /*------------------------------------ Background Color -------------------------------------*/
-      [new RegExp(`^d-(${sizedValue})-(${sizedValue})$`), m => ({
+      [new RegExp(`^d-(${sizedValue})(?:-(${sizedValue}))?$`), m => ({
         width : u(m[1], m[2]),
-        height: u(m[3], m[4]),
+        height: u(m[3] ?? m[1], m[4] ?? m[2]),
       })],
 
     /*------------------------------------ Background Color -------------------------------------*/
