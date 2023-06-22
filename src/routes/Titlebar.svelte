@@ -30,11 +30,11 @@
 
 <div class="flex h-20px">
   <span data-tauri-drag-region class="block lh-20px text-13px font-900 ml-10px flex-1">AutoMaster {$version}</span>
-  <button on:click={open              } class="reset"><i class="fa-solid fa-gear"          /></button>
+  <button on:click={open              } class="reset"><i class="fas fa-gear"          /></button>
   <div class="w-20px"/>
-  <button on:click={appWindow.minimize} class="reset"><i class="fa-solid fa-minus"         /></button>
-  <button on:click={toggleMaximize    } class="reset"><i class="fa-solid {toggleIconClass}"/></button>
-  <button on:click={appWindow.close   } class="reset"><i class="fa-solid fa-xmark"         /></button>
+  <button on:click={appWindow.minimize} class="reset"><i class="fas fa-minus"         /></button>
+  <button on:click={toggleMaximize    } class="reset"><i class="fas {toggleIconClass}"/></button>
+  <button on:click={appWindow.close   } class="reset"><i class="fas fa-xmark"         /></button>
 </div>
 
 
