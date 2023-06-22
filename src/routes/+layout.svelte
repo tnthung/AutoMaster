@@ -6,9 +6,6 @@
   // transition
   import { fly } from "svelte/transition";
 
-  // store
-  import dark from "../store/darkmode";
-
   // components
   import Setting  from "./Setting.svelte";
   import Titlebar from "./Titlebar.svelte";
@@ -18,7 +15,7 @@
 </script>
 
 
-<div id="app" class:dark={$dark}>
+<div id="app">
   <Titlebar/>
   <Setting/>
   <span id="page">
@@ -31,18 +28,12 @@
 
 <style lang="scss" global>
   #app {
-    --txt: #031107;
-    --bgc: #d9f7e2;
+    --txt: #f6f9f5;
+    --bgc: #000c04;
     --pri: #1d913f;
-    --sec: #f6fdf9;
+    --sec: #0a100a;
     --acc: #187b36;
     --neg: #d14141;
-
-    &.dark {
-      --txt: #f6f9f5;
-      --bgc: #000c04;
-      --sec: #0a100a;
-    }
 
     inset   : 0;
     position: fixed;
