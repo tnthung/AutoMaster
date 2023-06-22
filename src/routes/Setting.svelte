@@ -44,6 +44,8 @@
 
     display      : grid;
     place-content: center;
+
+    backdrop-filter: blur(10px);
   }
 
 
